@@ -145,9 +145,6 @@ fig_bmi_sport.update_layout(
     xaxis = dict(
         tickangle=-45
     ),
-    autosize = False,
-    width = 1300,
-    height = 900
 )
 
 # BMI for Italian athletes per age group
@@ -179,12 +176,6 @@ fig_bmi_age.add_shape(
     y1=24.9,
     line=dict(color='red', width=2, dash='dash'),
     name="Max range healthy BMI"
-)
-
-fig_bmi_age.update_layout(
-    autosize = False,
-    width = 1300,
-    height = 900
 )
 
 # BMI worldwide for Olympic Games
@@ -221,9 +212,6 @@ fig_bmi_worldwide.update_layout(
     xaxis = dict(
         tickangle=-45
     ),
-    autosize = False,
-    width = 1300,
-    height = 900
 )
 
 # App
@@ -238,35 +226,27 @@ server = app.server
 app.layout = dbc.Container([
     dbc.Row([
         dbc.Col([
-            html.H1("Olympic Games Dashboard", className='text-center text-primary mx-3')
+            html.H1("Olympic Games Dashboard: Italy", className='text-center text-primary mx-3')
             ], width=12, style={'text-align': 'center'})
     ], className="mt-5"),
     
-    # Gender distribution headings
+    # Gender distribution
     dbc.Row([
         dbc.Col([
-            html.H4("Gender distribution historically")
-        ], width={"size": 5, "offset": 0}, style={'text-align': 'center'}, className="mt-4"),
-        
-        dbc.Col([
-            html.H4("Gender distribution 2016")
-        ], width={"size": 5, "offset": 0}, style={'text-align': 'center'}, className="mt-4"),
-    ], justify='center'),
-    
-    # Gender distribution plots
-    dbc.Row([
-        dbc.Col([
+            html.H4("Gender distribution historically, Italian athletes"),
             html.Img(src=dash.get_asset_url('gender_distribution_overall.png')) 
-        ], width={"size": 5, "offset": 0}, style={'text-align': 'center'}),
+        ], xs=12, sm=11, md=10, lg=5, style={'text-align': 'center'}, className="mt-4"),        
         dbc.Col([
+            html.H4("Gender distribution 2016, Italian athletes"),
             html.Img(src=dash.get_asset_url('gender_distribution_2016.png')) 
-        ], width={"size": 5, "offset": 0}, style={'text-align': 'center'})
-    ], justify='center'),
+        ], xs=12, sm=11, md=10, lg=5, style={'text-align': 'center'}, className="mt-4"),
+    ], justify='evenly'),
+    
     
     # Medals per capita
     dbc.Row([
         dbc.Col([
-            html.H5("Slider for Medals per capita"),
+            html.H5("Number of countries to display:"),
             dcc.Slider(id='top_countries_slider', min=3, max=206, step=1, value=10, marks=None),
             dcc.Graph(id='top_countries_graph')
         ], className="mt-5")
@@ -343,7 +323,7 @@ app.layout = dbc.Container([
                 value="Fencing"
             ),
             dcc.Graph(id='medal_graph')
-        ]),
+        ], xs=12, sm=11, md=10, lg=5),
         dbc.Col([
             dcc.Dropdown(
                 id='sport_selector2',
@@ -351,7 +331,7 @@ app.layout = dbc.Container([
                 value="Fencing"
             ),
             dcc.Graph(id='age_graph')
-        ])
+        ], xs=12, sm=11, md=10, lg=5)
     ], className="mt-5")
 ])
 
@@ -431,4 +411,4 @@ def update_age_graph(selected_sport):
     return fig
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=8000)

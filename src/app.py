@@ -344,14 +344,24 @@ def update_top_countries_per_capita(top_variable):
     top_countries = medals_per_capita.sort_values(ascending=False)[:top_variable].reset_index()
     top_countries['Population'] = merged_df.groupby('region')['Population  (2023)'].mean().loc[top_countries['region']].values
     top_countries.rename(columns={0: 'Medals'}, inplace=True)
-    fig_medals_per_capita = px.bar(top_countries, 
+    if top_variable == 206:
+        fig_medals_per_capita = px.bar(top_countries, 
+             x='region',
+             y='Medals',
+             color='Population',
+             title=f'Number of Medals per Capita by Country: All countries',
+             labels={'Medal': 'Medals per Capita', 'region': 'Country'},
+             template='simple_white',
+            )
+    else:
+        fig_medals_per_capita = px.bar(top_countries, 
              x='region',
              y='Medals',
              color='Population',
              title=f'Number of Medals per Capita by Country: Top {top_variable}',
              labels={'Medal': 'Medals per Capita', 'region': 'Country'},
              template='simple_white',
-             )
+            )
     fig_medals_per_capita.update_layout(xaxis_title='Country', yaxis_title='Medals per Capita', showlegend=False)
     fig_medals_per_capita.update_traces(hovertemplate='Country: %{x}<br>Medals per Capita: %{y}<br>Population: %{marker.color:.2s}')
     return fig_medals_per_capita

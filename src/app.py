@@ -346,7 +346,7 @@ app.layout = dbc.Container([
             ),
             dcc.Graph(id='age_graph')
         ], xs=12, sm=11, md=10, lg=5)
-    ], className="mt-5")
+    ], className="mt-5", justify='center')
 ])
 
 # Medals per capita worldwide

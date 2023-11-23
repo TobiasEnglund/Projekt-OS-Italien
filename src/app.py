@@ -263,7 +263,7 @@ app.layout = dbc.Container([
     dbc.Row([
         dbc.Col([
             html.Img(src=app.get_asset_url('italy_medals_by_year.png')),
-        ], width={"size": 12, "offset": 0}, style={'text-align': 'center', 'width': '90%', 'height': 'auto'}),
+        ], width={"size": 12, "offset": 0}, style={'text-align': 'center', 'max-width': '90%'}),
     ], justify='center', className="mt-5"),
     
     # Data table of the best Italian years

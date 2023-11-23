@@ -262,7 +262,7 @@ app.layout = dbc.Container([
     # Italy medals by season
     dbc.Row([
         dbc.Col([
-            html.Img(src=app.get_asset_url('italy_medals_by_year.png')),
+            html.Img(src=app.get_asset_url('italy_medals_by_year.png'), width='100%'),
         ], xs=12, sm=11, md=11, lg=10, style={'text-align': 'center'}),
     ], justify='center', className="mt-5"),
     
@@ -303,14 +303,14 @@ app.layout = dbc.Container([
                 options=["BMI index in different sports in Italy", "BMI index by age in Italy"],
                 value='BMI index in different sports in Italy'
             ),
-            dcc.Graph(id='bmi_sport_or_age_graph')
+            dcc.Graph(id='bmi_sport_or_age_graph', style={'height': 800})
         ], className="mt-5", xs=12, sm=11, md=11, lg=10)
     ], justify='center'),
     
     # BMI Worldwide
     dbc.Row([
         dbc.Col([
-            dcc.Graph(figure=fig_bmi_worldwide)
+            dcc.Graph(figure=fig_bmi_worldwide, style={'height': 800})
         ], className="mt-5", xs=12, sm=11, md=11, lg=10)
     ], justify='center'),
     

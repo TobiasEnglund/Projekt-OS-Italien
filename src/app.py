@@ -146,7 +146,14 @@ fig_bmi_sport.update_layout(
         tickangle=-45
     ),
 )
-
+fig_bmi_sport.update_layout(
+    xaxis = dict(
+        tickangle=-45
+    ),
+    autosize = False,
+    width = 1300,
+    height = 900
+)
 # BMI for Italian athletes per age group
 
 fig_bmi_age = px.box(
@@ -176,6 +183,11 @@ fig_bmi_age.add_shape(
     y1=24.9,
     line=dict(color='red', width=2, dash='dash'),
     name="Max range healthy BMI"
+)
+fig_bmi_age.update_layout(
+    autosize = False,
+    width = 1300,
+    height = 900
 )
 
 # BMI worldwide for Olympic Games
@@ -212,8 +224,10 @@ fig_bmi_worldwide.update_layout(
     xaxis = dict(
         tickangle=-45
     ),
+    autosize = False,
+    width = 1300,
+    height = 900
 )
-
 # App
 
 app = Dash(
@@ -263,7 +277,7 @@ app.layout = dbc.Container([
     dbc.Row([
         dbc.Col([
             html.Img(src=app.get_asset_url('italy_medals_by_year.png')),
-        ], width={"size": 12, "offset": 0}, style={'text-align': 'center', 'max-width': '90%'}),
+        ], width={"size": 12, "offset": 0}, style={'text-align': 'center'}),
     ], justify='center', className="mt-5"),
     
     # Data table of the best Italian years

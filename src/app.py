@@ -249,21 +249,21 @@ app.layout = dbc.Container([
             html.H5("Number of countries to display:"),
             dcc.Slider(id='top_countries_slider', min=3, max=206, step=1, value=10, marks=None),
             dcc.Graph(id='top_countries_graph')
-        ], className="mt-5", xs=12, sm=11, md=10, lg=8)
+        ], className="mt-5", xs=12, sm=11, md=11, lg=10)
     ], justify='center'),
     
     # Italy medals
     dbc.Row([
         dbc.Col([
             dcc.Graph(figure=fig_italy_medals)
-        ], className="mt-5", xs=12, sm=11, md=10, lg=8)
+        ], className="mt-5", xs=12, sm=11, md=11, lg=10)
     ], justify='center'),
     
     # Italy medals by season
     dbc.Row([
         dbc.Col([
             html.Img(src=app.get_asset_url('italy_medals_by_year.png')),
-        ], xs=12, sm=11, md=10, lg=8, style={'text-align': 'center'}),
+        ], xs=12, sm=11, md=11, lg=10, style={'text-align': 'center'}),
     ], justify='center', className="mt-5"),
     
     # Data table of the best Italian years
@@ -273,7 +273,7 @@ app.layout = dbc.Container([
                 id='best_italian_years',
                 data=best_italian_years.to_dict('records'),
                 columns=[{"name": i, "id": i} for i in best_italian_years.columns])
-        ], xs=12, sm=11, md=10, lg=8, className="text-black-50")
+        ], xs=12, sm=11, md=11, lg=10, className="text-black-50")
     ], justify='center', className="mt-5"),
     
     # Age groups for Italy
@@ -285,14 +285,14 @@ app.layout = dbc.Container([
                 value='Total number of athletes per age group in Italy'
             ),
             dcc.Graph(id='medals_or_athletes_per_age_group_graph')
-        ], className="mt-5", xs=12, sm=11, md=10, lg=8)
+        ], className="mt-5", xs=12, sm=11, md=11, lg=10)
     ], justify='center'),
     
     # Athlete heights per sport Italy
     dbc.Row([
         dbc.Col([
             dcc.Graph(figure=fig_athlete_height_sport)
-        ], className="mt-5", xs=12, sm=11, md=10, lg=8)
+        ], className="mt-5", xs=12, sm=11, md=11, lg=10)
     ], justify='center'),
     
     # BMI for Italy
@@ -304,14 +304,14 @@ app.layout = dbc.Container([
                 value='BMI index in different sports in Italy'
             ),
             dcc.Graph(id='bmi_sport_or_age_graph')
-        ], className="mt-5", xs=12, sm=11, md=10, lg=8)
+        ], className="mt-5", xs=12, sm=11, md=11, lg=10)
     ], justify='center'),
     
     # BMI Worldwide
     dbc.Row([
         dbc.Col([
             dcc.Graph(figure=fig_bmi_worldwide)
-        ], className="mt-5", xs=12, sm=11, md=10, lg=8)
+        ], className="mt-5", xs=12, sm=11, md=11, lg=10)
     ], justify='center'),
     
     # Medals and age distribution for sports
